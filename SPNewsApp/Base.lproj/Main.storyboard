@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sources-->
+        <!--Source View Controller-->
         <scene sceneID="1hA-M2-F1V">
             <objects>
-                <viewController id="ydm-qC-oXY" customClass="SourceViewController" customModule="SPNewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ydm-qC-oXY" userLabel="Source View Controller" customClass="SourceViewController" customModule="SPNewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gAm-JA-WyI"/>
                         <viewControllerLayoutGuide type="bottom" id="WhX-oW-yDZ"/>
@@ -21,44 +22,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="139" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GNH-Hj-wzJ" customClass="Source">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="163" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GNH-Hj-wzJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sourceCell" rowHeight="139" id="ihx-g0-Ylf" customClass="SourceCell" customModule="SPNewsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="139"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sourceCell" rowHeight="163" id="ihx-g0-Ylf" customClass="SourceCell" customModule="SPNewsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ihx-g0-Ylf" id="MBe-So-XZL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="source_name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08r-XL-F6p">
-                                                    <rect key="frame" x="136" y="109" width="102" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lEB-sk-g51">
+                                                    <rect key="frame" x="111" y="20" width="150" height="94"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzd-Cr-XUs">
+                                                    <rect key="frame" x="32" y="126" width="311" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AWS-vB-joJ">
-                                                    <rect key="frame" x="87" y="21" width="200" height="80"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Zzd-Cr-XUs" secondAttribute="bottom" constant="4" id="4A9-M3-WQb"/>
+                                                <constraint firstItem="lEB-sk-g51" firstAttribute="leading" secondItem="MBe-So-XZL" secondAttribute="leadingMargin" constant="103" id="Ads-M3-yDf"/>
+                                                <constraint firstItem="Zzd-Cr-XUs" firstAttribute="leading" secondItem="MBe-So-XZL" secondAttribute="leadingMargin" constant="24" id="Ddz-I6-daH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Zzd-Cr-XUs" secondAttribute="trailing" constant="24" id="FIa-E0-lFT"/>
+                                                <constraint firstItem="lEB-sk-g51" firstAttribute="top" secondItem="MBe-So-XZL" secondAttribute="topMargin" constant="12" id="HYp-be-r2U"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lEB-sk-g51" secondAttribute="trailing" constant="106" id="rHY-Bk-KPp"/>
+                                                <constraint firstItem="Zzd-Cr-XUs" firstAttribute="top" secondItem="lEB-sk-g51" secondAttribute="bottom" constant="12" id="zjB-74-iHt"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="sourceImageView" destination="AWS-vB-joJ" id="69J-bQ-Zmu"/>
-                                            <outlet property="sourceLabel" destination="08r-XL-F6p" id="bTa-jk-Zy7"/>
+                                            <outlet property="sourceImageView" destination="lEB-sk-g51" id="8Dm-vw-O2X"/>
+                                            <outlet property="sourceLabel" destination="Zzd-Cr-XUs" id="DK5-fG-GlJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ydm-qC-oXY" id="u56-OV-eJN"/>
+                                    <outlet property="delegate" destination="ydm-qC-oXY" id="1by-oG-5jR"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sources" id="hIf-ZV-IyR"/>
+                    <navigationItem key="navigationItem" title="Sources" id="hIf-ZV-IyR">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="filter_48" id="cS4-ss-8Qh"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="sourceTableView" destination="GNH-Hj-wzJ" id="iCK-u0-4Tj"/>
+                        <outlet property="sourceTableView" destination="GNH-Hj-wzJ" id="ATg-re-YKF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4YT-kF-ACv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,4 +96,7 @@
             <point key="canvasLocation" x="-313" y="188"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="filter_48" width="24" height="24"/>
+    </resources>
 </document>

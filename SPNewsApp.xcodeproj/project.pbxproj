@@ -16,6 +16,9 @@
 		789098211E97F9560032246F /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098201E97F9560032246F /* ServerManager.swift */; };
 		789098251E97F9E40032246F /* SourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098241E97F9E40032246F /* SourceCell.swift */; };
 		789098271E97FAB40032246F /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098261E97FAB40032246F /* SourceViewController.swift */; };
+		789098681E981FFD0032246F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789098671E981FFD0032246F /* SDWebImage.framework */; };
+		789098691E9820090032246F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789098671E981FFD0032246F /* SDWebImage.framework */; };
+		7890986A1E9820090032246F /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 789098671E981FFD0032246F /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7890986B1E9820090032246F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7890986A1E9820090032246F /* SDWebImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		789097EF1E97F74C0032246F /* SPNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		789097F21E97F74C0032246F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +68,7 @@
 		789098201E97F9560032246F /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		789098241E97F9E40032246F /* SourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCell.swift; sourceTree = "<group>"; };
 		789098261E97FAB40032246F /* SourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
+		789098671E981FFD0032246F /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789098691E9820090032246F /* SDWebImage.framework in Frameworks */,
+				789098681E981FFD0032246F /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +105,7 @@
 				789098061E97F74C0032246F /* SPNewsAppTests */,
 				789098111E97F74C0032246F /* SPNewsAppUITests */,
 				789097F01E97F74C0032246F /* Products */,
+				789098671E981FFD0032246F /* SDWebImage.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +162,7 @@
 				789097EB1E97F74C0032246F /* Sources */,
 				789097EC1E97F74C0032246F /* Frameworks */,
 				789097ED1E97F74C0032246F /* Resources */,
+				7890986B1E9820090032246F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -422,6 +444,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZW9JWEU2NM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SPNewsApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SP.SPNewsApp;
@@ -435,6 +461,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZW9JWEU2NM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SPNewsApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SP.SPNewsApp;
@@ -520,6 +550,7 @@
 				789098191E97F74C0032246F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7890981A1E97F74C0032246F /* Build configuration list for PBXNativeTarget "SPNewsAppTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +559,7 @@
 				7890981C1E97F74C0032246F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7890981D1E97F74C0032246F /* Build configuration list for PBXNativeTarget "SPNewsAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +568,7 @@
 				7890981F1E97F74C0032246F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
