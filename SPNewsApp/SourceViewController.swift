@@ -52,6 +52,12 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    let menuManager = MenuManager()
+    
+    
+    @IBAction func openFilterMenu(_ sender: Any) {
+        menuManager.openMenu() 
+    }
     
     func fetchSources(withCategory category: String?) {
         
@@ -74,7 +80,7 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     self.sourcesArray.append(sourceName) // append in array
                     
                     let jsonLogos = source["urlsToLogos"] as! [String : String]
-                    let smallImageUrl = jsonLogos["small"]
+                    let smallImageUrl = jsonLogos["medium"]
                     
                     self.sourcesImageArray.append(smallImageUrl!)
 //                    print(smallImageUrl!)
