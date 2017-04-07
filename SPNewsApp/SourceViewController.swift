@@ -15,25 +15,24 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var sourcesImageArray = [String]()
     let kSourcesGet: String = "https://newsapi.org/v1/sources"
     lazy var manager: ServerManager = ServerManager.init()
+    let menuManager = MenuManager()
+    var currentCategory: String?
     
     @IBOutlet weak var sourceTableView: UITableView!
     
     override func loadView() {
         super.loadView()
-        self.fetchSources(withCategory: nil)
+        self.fetchSources(withCategory: currentCategory)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-
-    func setupTableView() {
-
+        self.setupTableView()
     }
     
-    func setupActivityIndicator() {
-        
+    func setupTableView() {
+        sourceTableView.estimatedRowHeight = 200
+        sourceTableView.rowHeight = UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,19 +43,20 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let reuseID = "sourceCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! SourceCell
         
-        
         // Cell setup
         cell.sourceLabel.text = self.sourcesArray[indexPath.item]
+        cell.sourceLabel.sizeToFit()
+        
         cell.sourceImageView.sd_setImage(with: URL(string: self.sourcesImageArray[indexPath.item])!)
+        cell.sourceImageView.contentMode = .center
         
         return cell
     }
     
-    let menuManager = MenuManager()
-    
     
     @IBAction func openFilterMenu(_ sender: Any) {
-        menuManager.openMenu() 
+        menuManager.openMenu()
+        menuManager.mainVC = self
     }
     
     func fetchSources(withCategory category: String?) {
@@ -80,14 +80,13 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     self.sourcesArray.append(sourceName) // append in array
                     
                     let jsonLogos = source["urlsToLogos"] as! [String : String]
-                    let smallImageUrl = jsonLogos["medium"]
+                    let smallImageUrl = jsonLogos["small"]
                     
                     self.sourcesImageArray.append(smallImageUrl!)
 //                    print(smallImageUrl!)
                     print(sourceName)
                 }
                 print(self.sourcesArray.count)
-                print(self.sourcesImageArray.count)
                 
             }
             DispatchQueue.main.async {

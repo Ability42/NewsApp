@@ -12,7 +12,9 @@ class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     let filterTableView = UITableView()
     let blackView = UIView()
-    let categories = ["Business", "Entertainment", "Gaming", "General", "Science & Nature", "Music", "Sport", "Technology", "All"]
+    let categories = ["Business", "Entertainment", "Gaming", "General", "Science-and-Nature", "Music", "Sport", "Technology", "All"]
+    
+    var mainVC: SourceViewController?
     
     public func openMenu() {
         if let window = UIApplication.shared.keyWindow {
@@ -23,7 +25,7 @@ class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
             
             // Configure TableView
             
-            let height: CGFloat = 270
+            let height: CGFloat = 36 * 9
             let y = window.frame.height - height
             
             filterTableView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
@@ -51,18 +53,36 @@ class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     override init() {
         super.init()
-        
+
         filterTableView.delegate = self
         filterTableView.dataSource = self
-
         filterTableView.isScrollEnabled = false
         filterTableView.bounces = false
-        
+        filterTableView.separatorInset.left = 8
+        filterTableView.separatorInset.right = 8
         filterTableView.register(CategoryViewCell.classForCoder(), forCellReuseIdentifier: "categoryCell")
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = mainVC {
+            let category = categories[indexPath.item].lowercased()
+            vc.currentCategory = category
+            
+            vc.sourcesArray.removeAll()
+            vc.sourcesImageArray.removeAll()
+            
+            if category == "all" {
+                vc.fetchSources(withCategory: nil)
+            } else {
+                vc.fetchSources(withCategory: category)
+            }
+            
+            closeMenu()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 30
+        return 36
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,9 +93,9 @@ class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
         
         let reuseID = "categoryCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath)
-        
         cell.textLabel?.text = categories[indexPath.item]
-        
+        cell.textLabel?.textAlignment = .center
+        cell.textLabel?.font.withSize(16)
         return cell
     }
 
