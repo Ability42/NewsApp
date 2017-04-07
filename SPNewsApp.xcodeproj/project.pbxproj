@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		789097F31E97F74C0032246F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789097F21E97F74C0032246F /* AppDelegate.swift */; };
-		789097F51E97F74C0032246F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789097F41E97F74C0032246F /* ViewController.swift */; };
 		789097F81E97F74C0032246F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789097F61E97F74C0032246F /* Main.storyboard */; };
 		789097FA1E97F74C0032246F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 789097F91E97F74C0032246F /* Assets.xcassets */; };
 		789097FD1E97F74C0032246F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789097FB1E97F74C0032246F /* LaunchScreen.storyboard */; };
 		789098081E97F74C0032246F /* SPNewsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098071E97F74C0032246F /* SPNewsAppTests.swift */; };
 		789098131E97F74C0032246F /* SPNewsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098121E97F74C0032246F /* SPNewsAppUITests.swift */; };
+		789098211E97F9560032246F /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098201E97F9560032246F /* ServerManager.swift */; };
+		789098251E97F9E40032246F /* SourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098241E97F9E40032246F /* SourceCell.swift */; };
+		789098271E97FAB40032246F /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098261E97FAB40032246F /* SourceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		789097EF1E97F74C0032246F /* SPNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		789097F21E97F74C0032246F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		789097F41E97F74C0032246F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		789097F71E97F74C0032246F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		789097F91E97F74C0032246F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		789097FC1E97F74C0032246F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		7890980E1E97F74C0032246F /* SPNewsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SPNewsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		789098121E97F74C0032246F /* SPNewsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPNewsAppUITests.swift; sourceTree = "<group>"; };
 		789098141E97F74C0032246F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		789098201E97F9560032246F /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		789098241E97F9E40032246F /* SourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCell.swift; sourceTree = "<group>"; };
+		789098261E97FAB40032246F /* SourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				789097F21E97F74C0032246F /* AppDelegate.swift */,
-				789097F41E97F74C0032246F /* ViewController.swift */,
+				789098261E97FAB40032246F /* SourceViewController.swift */,
+				789098201E97F9560032246F /* ServerManager.swift */,
+				789098241E97F9E40032246F /* SourceCell.swift */,
 				789097F61E97F74C0032246F /* Main.storyboard */,
 				789097F91E97F74C0032246F /* Assets.xcassets */,
 				789097FB1E97F74C0032246F /* LaunchScreen.storyboard */,
@@ -262,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				789097F51E97F74C0032246F /* ViewController.swift in Sources */,
+				789098251E97F9E40032246F /* SourceCell.swift in Sources */,
+				789098271E97FAB40032246F /* SourceViewController.swift in Sources */,
+				789098211E97F9560032246F /* ServerManager.swift in Sources */,
 				789097F31E97F74C0032246F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
