@@ -1,1 +1,2 @@
 github "rs/SDWebImage"
+github "ashleymills/Reachability.swift" ~> 3.0

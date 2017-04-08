@@ -11,6 +11,6 @@ import UIKit
 class SourceCell: UITableViewCell {
 
     @IBOutlet weak var sourceImageView: UIImageView!
-    @IBOutlet weak var sourceLabel: UILabel!
+//    @IBOutlet weak var sourceLabel: UILabel!
 
 }

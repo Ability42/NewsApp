@@ -11,7 +11,6 @@ import SDWebImage
 
 class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
     @IBOutlet weak var articleFilter: UISegmentedControl!
     @IBOutlet weak var articleTableView: UITableView!
     var currentSource: Source?
@@ -19,9 +18,12 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     var avaliableSortFiters: [String]?
     var currentFilter: String?
     
+    lazy var manager = ServerManager.sharedManager
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
         self.navigationItem.title = currentSource?.kName
         self.fetchArticlesWithFilter(filter: (currentSource?.kSortBysAvaliable.first)!)
         self.currentFilter = currentSource?.kSortBysAvaliable.first
@@ -29,6 +31,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.initialFilterSetup()
     }
 
@@ -54,6 +57,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.authorLabel.text = self.articlesArray?[indexPath.item].kAuthor
         cell.descriptionLabel.text = self.articlesArray?[indexPath.item].kDescription
         cell.dateLabel.text = self.articlesArray?[indexPath.item].KPublishedAt
+        
         if let urlToImage = self.articlesArray?[indexPath.item].kUrlToImage {
             cell.photoImageView.sd_setImage(with: URL(string: urlToImage), placeholderImage: #imageLiteral(resourceName: "Placeholder"))
         } else {
@@ -64,9 +68,8 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.photoImageView.contentMode = .scaleAspectFill
         
         return cell
-
     }
-    
+
     
     func initialFilterSetup() {
         for filterItem in avaliableSortFiters! {
@@ -88,6 +91,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    
     @IBAction func chooseFilter(_ sender: UISegmentedControl) {
         self.articlesArray?.removeAll()
         fetchArticlesWithFilter(filter: (sender.titleForSegment(at: sender.selectedSegmentIndex)?.lowercased())!)
@@ -100,9 +104,9 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         let APIkey = "43060499d5354c6f8ecbc338180b0093"
         let stringURL = "https://newsapi.org/v1/articles?source=\(source)&sortBy=\(filter)&apiKey=\(APIkey)"
         
-        let manager = ServerManager.sharedManager
         
-        manager.makeRequest(urlString: stringURL) { (data) in
+        
+        self.manager.makeRequest(urlString: stringURL) { (data) in
             
             if !(data?.isEmpty)! {
                 let json = try! JSONSerialization.jsonObject(with: data!, options: []) as! [String : Any]
@@ -126,6 +130,4 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
     }
-    
-
 }

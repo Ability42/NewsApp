@@ -17,6 +17,7 @@ class Article: NSObject {
     var kUrlToImage: String?
     var KPublishedAt: String?
     
+    
     init(withServer response:[String:Any]) {
         super.init()
         self.kTitle = response["title"] as? String
@@ -30,7 +31,9 @@ class Article: NSObject {
         } else {
             self.KPublishedAt = ""
         }
+        
     }
+    
     
     func setupCorrectDateDisplaying(withString strDate: String) -> String {
         let dateFormatter = DateFormatter()

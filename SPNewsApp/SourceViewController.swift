@@ -8,42 +8,71 @@
 
 import UIKit
 import SDWebImage
+import Reachability
 
 class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     var sourcesArray = [Source]()
     let kSourcesGet: String = "https://newsapi.org/v1/sources"
-    
-    lazy var manager: ServerManager = ServerManager.init()
-    let menuManager = MenuManager()
     var currentCategory: String?
     
+    lazy var manager: ServerManager = ServerManager.sharedManager
+    let menuManager = MenuManager()
+
+    let reachability = Reachability()!
+
+
+    var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var sourceTableView: UITableView!
+    
+    
+    func setupActivityIndicator() {
+        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        sourceTableView.backgroundView = activityIndicatorView
+        activityIndicatorView.hidesWhenStopped = true
+        sourceTableView.separatorStyle = .none
+    }
     
     override func loadView() {
         super.loadView()
-        self.fetchSources(withCategory: currentCategory)
+        
+
+        if reachability.isReachable {
+            self.fetchSources(withCategory: currentCategory)
+        } else {
+            self.createAlertController()
+        }
+        
+    }
+    
+    func createAlertController() {
+        let alert = UIAlertController(title: "Network not avaliable", message: "Please, checkout you connection and restart app", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
+        self.setupActivityIndicator()
+        activityIndicatorView.startAnimating()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.activityIndicatorView.stopAnimating()
+        self.sourceTableView.separatorStyle = .singleLine
     }
     
     func setupTableView() {
         sourceTableView.estimatedRowHeight = 200
         sourceTableView.rowHeight = UITableViewAutomaticDimension
+        sourceTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
-    func setupActivityIndicator() {
-    }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let articleVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
         articleVC.currentSource = self.sourcesArray[indexPath.item]

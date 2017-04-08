@@ -134,7 +134,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Some Title, long title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IR-5z-1UK">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Some Title, long title fds fsd f sd f s f s fs  fsd fsf s fs fs" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IR-5z-1UK">
                                                     <rect key="frame" x="12" y="12" width="359" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="359" id="pTH-R7-n9l"/>
@@ -226,12 +226,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="nDF-Or-NBb" firstAttribute="bottom" secondItem="7eD-Yb-BAb" secondAttribute="top" id="B3v-jJ-tPd"/>
+                            <constraint firstItem="nDF-Or-NBb" firstAttribute="leading" secondItem="n3s-rZ-wEC" secondAttribute="leading" id="CR7-1A-y2H"/>
                             <constraint firstItem="nDF-Or-NBb" firstAttribute="centerX" secondItem="Hxz-ug-U7M" secondAttribute="centerX" id="PU9-qu-3eN"/>
                             <constraint firstItem="nDF-Or-NBb" firstAttribute="top" secondItem="Hxz-ug-U7M" secondAttribute="bottom" constant="8" id="VuH-yv-XxY"/>
                             <constraint firstItem="nDF-Or-NBb" firstAttribute="leading" secondItem="n3s-rZ-wEC" secondAttribute="leading" id="XV4-wd-KJc"/>
+                            <constraint firstItem="7eD-Yb-BAb" firstAttribute="top" secondItem="nDF-Or-NBb" secondAttribute="bottom" id="Xtl-1C-xjR"/>
+                            <constraint firstAttribute="trailing" secondItem="nDF-Or-NBb" secondAttribute="trailing" id="hjb-vc-jwI"/>
                             <constraint firstItem="Hxz-ug-U7M" firstAttribute="top" secondItem="saa-nm-xRt" secondAttribute="bottom" constant="8" id="p2a-jU-ts8"/>
                             <constraint firstItem="Hxz-ug-U7M" firstAttribute="trailing" secondItem="n3s-rZ-wEC" secondAttribute="trailingMargin" id="pM1-Sr-aEh"/>
                             <constraint firstItem="Hxz-ug-U7M" firstAttribute="leading" secondItem="n3s-rZ-wEC" secondAttribute="leadingMargin" id="xLC-ay-h9H"/>
+                            <constraint firstItem="nDF-Or-NBb" firstAttribute="top" secondItem="Hxz-ug-U7M" secondAttribute="bottom" constant="8" id="zt6-zh-NvJ"/>
                         </constraints>
                     </view>
                     <connections>

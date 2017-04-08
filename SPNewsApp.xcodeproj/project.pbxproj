@@ -30,6 +30,9 @@
 		789098811E9907910032246F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7890987F1E99078E0032246F /* WebKit.framework */; };
 		789098821E9907910032246F /* WebKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7890987F1E99078E0032246F /* WebKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		789098841E9907AC0032246F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098831E9907AC0032246F /* WebViewController.swift */; };
+		789098861E993FFD0032246F /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789098851E993FFD0032246F /* Reachability.framework */; };
+		789098871E9940020032246F /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789098851E993FFD0032246F /* Reachability.framework */; };
+		789098881E9940020032246F /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 789098851E993FFD0032246F /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				789098821E9907910032246F /* WebKit.framework in Embed Frameworks */,
+				789098881E9940020032246F /* Reachability.framework in Embed Frameworks */,
 				7890986A1E9820090032246F /* SDWebImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -90,6 +94,7 @@
 		7890987C1E98E76D0032246F /* ArticleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewCell.swift; sourceTree = "<group>"; };
 		7890987F1E99078E0032246F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		789098831E9907AC0032246F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		789098851E993FFD0032246F /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +103,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				789098801E99078E0032246F /* WebKit.framework in Frameworks */,
+				789098871E9940020032246F /* Reachability.framework in Frameworks */,
 				789098691E9820090032246F /* SDWebImage.framework in Frameworks */,
+				789098861E993FFD0032246F /* Reachability.framework in Frameworks */,
 				789098811E9907910032246F /* WebKit.framework in Frameworks */,
 				789098681E981FFD0032246F /* SDWebImage.framework in Frameworks */,
 			);
@@ -186,6 +193,7 @@
 		7890987E1E99078E0032246F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				789098851E993FFD0032246F /* Reachability.framework */,
 				789098671E981FFD0032246F /* SDWebImage.framework */,
 				7890987F1E99078E0032246F /* WebKit.framework */,
 			);

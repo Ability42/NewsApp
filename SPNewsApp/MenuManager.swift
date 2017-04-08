@@ -51,6 +51,7 @@ class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    
     override init() {
         super.init()
 
@@ -62,6 +63,7 @@ class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
         filterTableView.separatorInset.right = 8
         filterTableView.register(CategoryViewCell.classForCoder(), forCellReuseIdentifier: "categoryCell")
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = mainVC {
@@ -80,13 +82,16 @@ class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 36
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
