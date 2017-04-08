@@ -22,9 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="167" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GNH-Hj-wzJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="167" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GNH-Hj-wzJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sourceCell" rowHeight="167" id="ihx-g0-Ylf" customClass="SourceCell" customModule="SPNewsApp" customModuleProvider="target">
@@ -35,7 +34,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzd-Cr-XUs">
-                                                    <rect key="frame" x="47" y="139.5" width="281" height="19"/>
+                                                    <rect key="frame" x="47" y="140" width="281" height="19"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Label">
                                                             <attributes>
@@ -46,7 +45,7 @@
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lEB-sk-g51">
+                                                <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lEB-sk-g51">
                                                     <rect key="frame" x="115" y="12" width="145" height="116"/>
                                                 </imageView>
                                             </subviews>
@@ -74,6 +73,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GNH-Hj-wzJ" firstAttribute="leading" secondItem="DR3-7y-Fl0" secondAttribute="leading" id="2h4-b2-NqF"/>
+                            <constraint firstItem="WhX-oW-yDZ" firstAttribute="top" secondItem="GNH-Hj-wzJ" secondAttribute="bottom" id="iSy-xT-bUq"/>
+                            <constraint firstAttribute="trailing" secondItem="GNH-Hj-wzJ" secondAttribute="trailing" id="jKX-uk-qPI"/>
+                            <constraint firstItem="GNH-Hj-wzJ" firstAttribute="top" secondItem="DR3-7y-Fl0" secondAttribute="top" id="tEd-k0-Tiv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sources" id="hIf-ZV-IyR">
                         <barButtonItem key="rightBarButtonItem" image="filter_48" id="cS4-ss-8Qh">

@@ -69,7 +69,6 @@ class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
             vc.currentCategory = category
             
             vc.sourcesArray.removeAll()
-            vc.sourcesImageArray.removeAll()
             
             if category == "all" {
                 vc.fetchSources(withCategory: nil)
@@ -95,7 +94,7 @@ class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath)
         cell.textLabel?.text = categories[indexPath.item]
         cell.textLabel?.textAlignment = .center
-        cell.textLabel?.font.withSize(16)
+        cell.textLabel?.font = UIFont(name: "Menlo", size: 15)
         return cell
     }
 

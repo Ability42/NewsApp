@@ -11,9 +11,10 @@ import SDWebImage
 
 class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var sourcesArray = [String]()
-    var sourcesImageArray = [String]()
+    
+    var sourcesArray = [Source]()
     let kSourcesGet: String = "https://newsapi.org/v1/sources"
+    
     lazy var manager: ServerManager = ServerManager.init()
     let menuManager = MenuManager()
     var currentCategory: String?
@@ -30,9 +31,23 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.setupTableView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+    
     func setupTableView() {
         sourceTableView.estimatedRowHeight = 200
         sourceTableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    func setupActivityIndicator() {
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let articleVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
+        articleVC.currentSource = self.sourcesArray[indexPath.item]
+        self.navigationController?.pushViewController(articleVC, animated: YES)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,11 +59,15 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! SourceCell
         
         // Cell setup
-        cell.sourceLabel.text = self.sourcesArray[indexPath.item]
+        cell.sourceLabel.text = self.sourcesArray[indexPath.item].kName
         cell.sourceLabel.sizeToFit()
+
         
-        cell.sourceImageView.sd_setImage(with: URL(string: self.sourcesImageArray[indexPath.item])!)
+        cell.sourceImageView.sd_setImage(with: URL(string: self.sourcesArray[indexPath.item].kUrlsToLogo["small"]!)!)
         cell.sourceImageView.contentMode = .center
+        cell.sourceImageView.layer.masksToBounds = true
+        
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -62,7 +81,6 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func fetchSources(withCategory category: String?) {
         
         var urlString = ""
-        
         if let categoryToGet = category {
             urlString = self.kSourcesGet + "?category=" + categoryToGet
         } else {
@@ -71,23 +89,15 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.manager.makeRequest(urlString: urlString, completionHandler: { (data) in
             if !(data?.isEmpty)! {
-                //print(urlString)
+                
                 let jsonResponse = try! JSONSerialization.jsonObject(with: data!, options: []) as! [String : Any]
                 let jsonSources = jsonResponse["sources"] as? [[String : Any]]
                 
-                for source in jsonSources! {
-                    let sourceName = source["name"] as! String
-                    self.sourcesArray.append(sourceName) // append in array
-                    
-                    let jsonLogos = source["urlsToLogos"] as! [String : String]
-                    let smallImageUrl = jsonLogos["small"]
-                    
-                    self.sourcesImageArray.append(smallImageUrl!)
-//                    print(smallImageUrl!)
-                    print(sourceName)
+                for item in jsonSources! {
+                    let source = Source(withServer: item)
+                    self.sourcesArray.append(source)
                 }
-                print(self.sourcesArray.count)
-                
+
             }
             DispatchQueue.main.async {
                 self.sourceTableView.reloadData()
