@@ -12,9 +12,11 @@ import SDWebImage
 class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    @IBOutlet weak var articleFilter: UISegmentedControl!
     @IBOutlet weak var articleTableView: UITableView!
     var currentSource: Source?
     var articlesArray: [Article]? = []
+    var avaliableSortFiters: [String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,9 +59,16 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
+    func initialFilterSetup() {
+       
+    }
+    
+    @IBAction func chooseFilter(_ sender: UISegmentedControl) {
+    }
+    
+    
     
     func fetchArticlesWithFilter(filter: String) {
-        // Test Server Manager
         
         let source = currentSource!.kId
         let APIkey = "43060499d5354c6f8ecbc338180b0093"
@@ -92,15 +101,5 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

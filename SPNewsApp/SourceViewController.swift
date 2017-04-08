@@ -47,6 +47,8 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let articleVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
         articleVC.currentSource = self.sourcesArray[indexPath.item]
+        articleVC.avaliableSortFiters = self.sourcesArray[indexPath.item].kSortBysAvaliable
+
         self.navigationController?.pushViewController(articleVC, animated: true)
     }
     

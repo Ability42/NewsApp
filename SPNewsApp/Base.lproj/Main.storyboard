@@ -112,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="219" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nDF-Or-NBb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="219" id="SHU-fQ-fkz" customClass="ArticleViewCell" customModule="SPNewsApp" customModuleProvider="target">
@@ -123,7 +123,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UDq-1P-pMB">
-                                                    <rect key="frame" x="12" y="35.5" width="132" height="132"/>
+                                                    <rect key="frame" x="12" y="36" width="132" height="132"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="132" id="U0R-nM-NUN"/>
                                                         <constraint firstAttribute="width" constant="132" id="hZU-cG-4xz"/>
@@ -135,7 +135,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Some Title, long title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IR-5z-1UK">
-                                                    <rect key="frame" x="12" y="12" width="359" height="19.5"/>
+                                                    <rect key="frame" x="12" y="12" width="359" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="359" id="pTH-R7-n9l"/>
                                                     </constraints>
@@ -144,7 +144,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9Q-ZW-bMN">
-                                                    <rect key="frame" x="152" y="35.5" width="211" height="17"/>
+                                                    <rect key="frame" x="152" y="36" width="211" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="211" id="J2k-R9-VBa"/>
                                                     </constraints>
@@ -153,7 +153,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7X-hC-VWC">
-                                                    <rect key="frame" x="336.5" y="190.5" width="26.5" height="16"/>
+                                                    <rect key="frame" x="336" y="191" width="27" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="ckR-EM-4fj"/>
                                                     </constraints>
@@ -162,7 +162,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYt-va-5RB">
-                                                    <rect key="frame" x="16" y="190.5" width="64" height="16"/>
+                                                    <rect key="frame" x="16" y="191" width="64" height="16"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="autorLabel">
                                                             <attributes>
@@ -208,22 +208,40 @@
                                     <outlet property="delegate" destination="VW4-sE-0dz" id="xBk-zf-cuG"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Hxz-ug-U7M">
+                                <rect key="frame" x="16" y="28" width="343" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="ZUD-NG-vKr"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Top"/>
+                                    <segment title="Latest"/>
+                                    <segment title="Popular"/>
+                                </segments>
+                                <connections>
+                                    <action selector="chooseFilter:" destination="VW4-sE-0dz" eventType="valueChanged" id="AJI-jt-djg"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nDF-Or-NBb" firstAttribute="leading" secondItem="n3s-rZ-wEC" secondAttribute="leading" id="ZFA-8o-9IS"/>
-                            <constraint firstItem="7eD-Yb-BAb" firstAttribute="top" secondItem="nDF-Or-NBb" secondAttribute="bottom" id="asK-9E-SLz"/>
-                            <constraint firstItem="nDF-Or-NBb" firstAttribute="top" secondItem="n3s-rZ-wEC" secondAttribute="top" id="cWd-KP-Yie"/>
-                            <constraint firstAttribute="trailing" secondItem="nDF-Or-NBb" secondAttribute="trailing" id="zUE-BT-NbU"/>
+                            <constraint firstItem="nDF-Or-NBb" firstAttribute="bottom" secondItem="7eD-Yb-BAb" secondAttribute="top" id="B3v-jJ-tPd"/>
+                            <constraint firstItem="nDF-Or-NBb" firstAttribute="centerX" secondItem="Hxz-ug-U7M" secondAttribute="centerX" id="PU9-qu-3eN"/>
+                            <constraint firstItem="nDF-Or-NBb" firstAttribute="top" secondItem="Hxz-ug-U7M" secondAttribute="bottom" constant="8" id="VuH-yv-XxY"/>
+                            <constraint firstItem="nDF-Or-NBb" firstAttribute="leading" secondItem="n3s-rZ-wEC" secondAttribute="leading" id="XV4-wd-KJc"/>
+                            <constraint firstItem="Hxz-ug-U7M" firstAttribute="top" secondItem="saa-nm-xRt" secondAttribute="bottom" constant="8" id="p2a-jU-ts8"/>
+                            <constraint firstItem="Hxz-ug-U7M" firstAttribute="trailing" secondItem="n3s-rZ-wEC" secondAttribute="trailingMargin" id="pM1-Sr-aEh"/>
+                            <constraint firstItem="Hxz-ug-U7M" firstAttribute="leading" secondItem="n3s-rZ-wEC" secondAttribute="leadingMargin" id="xLC-ay-h9H"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="articleFilter" destination="Hxz-ug-U7M" id="3hu-Vz-dGf"/>
                         <outlet property="articleTableView" destination="nDF-Or-NBb" id="eXF-wd-Pp1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSe-8l-AuP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1553" y="188"/>
+            <point key="canvasLocation" x="1552.8" y="187.55622188905548"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="xFE-eU-pTJ">
