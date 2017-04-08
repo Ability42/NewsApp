@@ -214,9 +214,9 @@
                                     <constraint firstAttribute="height" constant="28" id="ZUD-NG-vKr"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="Top"/>
-                                    <segment title="Latest"/>
-                                    <segment title="Popular"/>
+                                    <segment title="Top" enabled="NO"/>
+                                    <segment title="Latest" enabled="NO"/>
+                                    <segment title="Popular" enabled="NO"/>
                                 </segments>
                                 <connections>
                                     <action selector="chooseFilter:" destination="VW4-sE-0dz" eventType="valueChanged" id="AJI-jt-djg"/>

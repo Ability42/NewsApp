@@ -17,12 +17,19 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
     var currentSource: Source?
     var articlesArray: [Article]? = []
     var avaliableSortFiters: [String]?
+    var currentFilter: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = currentSource?.kName
         self.fetchArticlesWithFilter(filter: (currentSource?.kSortBysAvaliable.first)!)
-
+        self.currentFilter = currentSource?.kSortBysAvaliable.first
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.initialFilterSetup()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -30,6 +37,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         webVC.urlToLoad = self.articlesArray?[indexPath.item].kUrl
         self.navigationController?.pushViewController(webVC, animated: true)
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.articlesArray!.count
@@ -59,17 +67,35 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
+    
     func initialFilterSetup() {
-       
+        for filterItem in avaliableSortFiters! {
+            if filterItem == "top" {
+                self.articleFilter.setEnabled(true, forSegmentAt: 0)
+            }
+            if filterItem == "latest" {
+                self.articleFilter.setEnabled(true, forSegmentAt: 1)
+            }
+            if filterItem == "popular" {
+                self.articleFilter.setEnabled(true, forSegmentAt: 2)
+            }
+        }
+        
+        for i in 0...2 {
+            if self.currentFilter == self.articleFilter.titleForSegment(at: i)?.lowercased() {
+                articleFilter.selectedSegmentIndex = i
+            }
+        }
     }
     
     @IBAction func chooseFilter(_ sender: UISegmentedControl) {
+        self.articlesArray?.removeAll()
+        fetchArticlesWithFilter(filter: (sender.titleForSegment(at: sender.selectedSegmentIndex)?.lowercased())!)
     }
     
     
-    
     func fetchArticlesWithFilter(filter: String) {
-        
+
         let source = currentSource!.kId
         let APIkey = "43060499d5354c6f8ecbc338180b0093"
         let stringURL = "https://newsapi.org/v1/articles?source=\(source)&sortBy=\(filter)&apiKey=\(APIkey)"
