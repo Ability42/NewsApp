@@ -47,7 +47,7 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let articleVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ArticleViewController") as! ArticleViewController
         articleVC.currentSource = self.sourcesArray[indexPath.item]
-        self.navigationController?.pushViewController(articleVC, animated: YES)
+        self.navigationController?.pushViewController(articleVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
