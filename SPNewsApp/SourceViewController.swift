@@ -59,13 +59,13 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! SourceCell
         
         // Cell setup
-        cell.sourceLabel.text = self.sourcesArray[indexPath.item].kName
-        cell.sourceLabel.sizeToFit()
+//        cell.sourceLabel.text = self.sourcesArray[indexPath.item].kName
+//        cell.sourceLabel.sizeToFit()
 
         
-        cell.sourceImageView.sd_setImage(with: URL(string: self.sourcesArray[indexPath.item].kUrlsToLogo["small"]!)!)
-        cell.sourceImageView.contentMode = .center
-        cell.sourceImageView.layer.masksToBounds = true
+        cell.sourceImageView.sd_setImage(with: URL(string: self.sourcesArray[indexPath.item].kUrlsToLogo["small"]!), placeholderImage: #imageLiteral(resourceName: "Placeholder"))
+        //cell.sourceImageView.contentMode = .center
+        //cell.sourceImageView.layer.masksToBounds = true
         
         cell.selectionStyle = .none
         
