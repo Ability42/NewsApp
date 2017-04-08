@@ -21,19 +21,11 @@ class Article: NSObject {
     
     init(withServer response:[String:Any]) {
         super.init()
-        if let title = response["title"] as? String,
-            let author = response["author"] as? String,
-            let description = response["description"] as? String,
-            let url = response["url"] as? String,
-            let imageUrl = response["urlToImage"] as? String,
-            let publishedAt = response["publishedAt"] as? String {
-            
-            self.kTitle = title
-            self.kAuthor = author
-            self.kDescription = description
-            self.kUrl = url
-            self.KPublishedAt = publishedAt
-            self.kUrlToImage = imageUrl
-        }
+        self.kTitle = response["title"] as? String
+        self.kAuthor = response["author"] as? String
+        self.kDescription = response["description"] as? String
+        self.kUrl = response["url"] as? String
+        self.KPublishedAt = response["publishedAt"] as? String
+        self.kUrlToImage = response["urlToImage"] as? String
     }
 }
