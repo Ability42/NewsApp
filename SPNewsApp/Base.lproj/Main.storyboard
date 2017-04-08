@@ -111,15 +111,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="219" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nDF-Or-NBb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="240" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nDF-Or-NBb">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="219" id="SHU-fQ-fkz" customClass="ArticleViewCell" customModule="SPNewsApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="219"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="articleCell" rowHeight="240" id="SHU-fQ-fkz" customClass="ArticleViewCell" customModule="SPNewsApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SHU-fQ-fkz" id="7kJ-z3-aht">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="218"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="239"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UDq-1P-pMB">
@@ -153,7 +153,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7X-hC-VWC">
-                                                    <rect key="frame" x="336" y="191" width="27" height="16"/>
+                                                    <rect key="frame" x="336" y="211.5" width="27" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="ckR-EM-4fj"/>
                                                     </constraints>
@@ -162,7 +162,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYt-va-5RB">
-                                                    <rect key="frame" x="16" y="191" width="64" height="16"/>
+                                                    <rect key="frame" x="16" y="211.5" width="64" height="16"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="autorLabel">
                                                             <attributes>
@@ -181,7 +181,6 @@
                                                 <constraint firstItem="UDq-1P-pMB" firstAttribute="leading" secondItem="7kJ-z3-aht" secondAttribute="leadingMargin" constant="4" id="C8U-Mc-K92"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="p9Q-ZW-bMN" secondAttribute="trailing" constant="4" id="CGw-vM-ij1"/>
                                                 <constraint firstItem="mYt-va-5RB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UDq-1P-pMB" secondAttribute="bottom" constant="8" id="EV0-BC-l3d"/>
-                                                <constraint firstItem="0IR-5z-1UK" firstAttribute="top" secondItem="7kJ-z3-aht" secondAttribute="topMargin" constant="4" id="GNV-NM-k6u"/>
                                                 <constraint firstItem="mYt-va-5RB" firstAttribute="top" secondItem="N7X-hC-VWC" secondAttribute="top" id="PVF-oA-2dz"/>
                                                 <constraint firstItem="p9Q-ZW-bMN" firstAttribute="top" secondItem="UDq-1P-pMB" secondAttribute="top" id="Pna-0Y-Oml"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="mYt-va-5RB" secondAttribute="bottom" constant="4" id="RgS-Di-SBo"/>
@@ -189,6 +188,8 @@
                                                 <constraint firstItem="N7X-hC-VWC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="p9Q-ZW-bMN" secondAttribute="bottom" constant="8" id="aO6-8C-wpH"/>
                                                 <constraint firstItem="p9Q-ZW-bMN" firstAttribute="leading" secondItem="UDq-1P-pMB" secondAttribute="trailing" constant="8" id="dUZ-My-t8g"/>
                                                 <constraint firstItem="UDq-1P-pMB" firstAttribute="top" secondItem="0IR-5z-1UK" secondAttribute="bottom" constant="4" id="dXW-DR-XDQ"/>
+                                                <constraint firstItem="N7X-hC-VWC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mYt-va-5RB" secondAttribute="trailing" constant="60" id="lST-tA-7Xu"/>
+                                                <constraint firstItem="0IR-5z-1UK" firstAttribute="top" secondItem="7kJ-z3-aht" secondAttribute="topMargin" constant="4" id="nLM-sc-YST"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="N7X-hC-VWC" secondAttribute="bottom" constant="4" id="w7w-mN-Q38"/>
                                                 <constraint firstItem="0IR-5z-1UK" firstAttribute="trailing" secondItem="7kJ-z3-aht" secondAttribute="trailingMargin" constant="4" id="xec-d5-czy"/>
                                             </constraints>
