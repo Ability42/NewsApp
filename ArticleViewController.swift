@@ -23,7 +23,11 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
 
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let webVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+        webVC.urlToLoad = self.articlesArray?[indexPath.item].kUrl
+        self.navigationController?.pushViewController(webVC, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.articlesArray!.count

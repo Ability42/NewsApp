@@ -26,6 +26,10 @@
 		789098791E98DE240032246F /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098781E98DE240032246F /* Article.swift */; };
 		7890987B1E98DE2C0032246F /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890987A1E98DE2C0032246F /* Source.swift */; };
 		7890987D1E98E76D0032246F /* ArticleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890987C1E98E76D0032246F /* ArticleViewCell.swift */; };
+		789098801E99078E0032246F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7890987F1E99078E0032246F /* WebKit.framework */; };
+		789098811E9907910032246F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7890987F1E99078E0032246F /* WebKit.framework */; };
+		789098821E9907910032246F /* WebKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7890987F1E99078E0032246F /* WebKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		789098841E9907AC0032246F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098831E9907AC0032246F /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				789098821E9907910032246F /* WebKit.framework in Embed Frameworks */,
 				7890986A1E9820090032246F /* SDWebImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -83,6 +88,8 @@
 		789098781E98DE240032246F /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		7890987A1E98DE2C0032246F /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		7890987C1E98E76D0032246F /* ArticleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewCell.swift; sourceTree = "<group>"; };
+		7890987F1E99078E0032246F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		789098831E9907AC0032246F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789098801E99078E0032246F /* WebKit.framework in Frameworks */,
 				789098691E9820090032246F /* SDWebImage.framework in Frameworks */,
+				789098811E9907910032246F /* WebKit.framework in Frameworks */,
 				789098681E981FFD0032246F /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,7 +128,7 @@
 				789098061E97F74C0032246F /* SPNewsAppTests */,
 				789098111E97F74C0032246F /* SPNewsAppUITests */,
 				789097F01E97F74C0032246F /* Products */,
-				789098671E981FFD0032246F /* SDWebImage.framework */,
+				7890987E1E99078E0032246F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,6 +155,7 @@
 				7890986E1E9837180032246F /* MenuManager.swift */,
 				789098721E983E020032246F /* CategoryViewCell.swift */,
 				7890987C1E98E76D0032246F /* ArticleViewCell.swift */,
+				789098831E9907AC0032246F /* WebViewController.swift */,
 				789098701E983B860032246F /* CategoryCell.xib */,
 				789097F61E97F74C0032246F /* Main.storyboard */,
 				789097F91E97F74C0032246F /* Assets.xcassets */,
@@ -171,6 +181,15 @@
 				789098141E97F74C0032246F /* Info.plist */,
 			);
 			path = SPNewsAppUITests;
+			sourceTree = "<group>";
+		};
+		7890987E1E99078E0032246F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				789098671E981FFD0032246F /* SDWebImage.framework */,
+				7890987F1E99078E0032246F /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7890986F1E9837180032246F /* MenuManager.swift in Sources */,
+				789098841E9907AC0032246F /* WebViewController.swift in Sources */,
 				7890987D1E98E76D0032246F /* ArticleViewCell.swift in Sources */,
 				789098251E97F9E40032246F /* SourceCell.swift in Sources */,
 				789098771E98DBF20032246F /* ArticleViewController.swift in Sources */,
