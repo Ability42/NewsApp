@@ -66,6 +66,7 @@ class ArticleViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.photoImageView.layer.masksToBounds = true; // ?
         cell.photoImageView.contentMode = .scaleAspectFill
+        cell.selectionStyle = .none
         
         return cell
     }

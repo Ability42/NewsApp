@@ -12,32 +12,23 @@ import Reachability
 
 class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
     var sourcesArray = [Source]()
     let kSourcesGet: String = "https://newsapi.org/v1/sources"
     var currentCategory: String?
     
-    lazy var manager: ServerManager = ServerManager.sharedManager
-    let menuManager = MenuManager()
+    lazy var manager = ServerManager.sharedManager
+    lazy var menuManager = MenuManager()
 
     let reachability = Reachability()!
 
-
-    var activityIndicatorView: UIActivityIndicatorView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var sourceTableView: UITableView!
     
-    
-    func setupActivityIndicator() {
-        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
-        sourceTableView.backgroundView = activityIndicatorView
-        activityIndicatorView.hidesWhenStopped = true
-        sourceTableView.separatorStyle = .none
-    }
-    
+
     override func loadView() {
         super.loadView()
-        
-
+        setupActivityIndicator()
         if reachability.isReachable {
             self.fetchSources(withCategory: currentCategory)
         } else {
@@ -46,24 +37,28 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupTableView()
+        self.activityIndicator.startAnimating()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.sourceTableView.separatorStyle = .singleLine
+    }
+
+    
     func createAlertController() {
         let alert = UIAlertController(title: "Network not avaliable", message: "Please, checkout you connection and restart app", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.setupTableView()
-        self.setupActivityIndicator()
-        activityIndicatorView.startAnimating()
-    }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.activityIndicatorView.stopAnimating()
-        self.sourceTableView.separatorStyle = .singleLine
+    func setupActivityIndicator() {
+        activityIndicator.hidesWhenStopped = true
     }
     
     func setupTableView() {
@@ -79,27 +74,26 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
         articleVC.avaliableSortFiters = self.sourcesArray[indexPath.item].kSortBysAvaliable
 
         self.navigationController?.pushViewController(articleVC, animated: true)
+
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sourcesArray.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let reuseID = "sourceCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseID, for: indexPath) as! SourceCell
         
-        // Cell setup
-//        cell.sourceLabel.text = self.sourcesArray[indexPath.item].kName
-//        cell.sourceLabel.sizeToFit()
-
-        
         cell.sourceImageView.sd_setImage(with: URL(string: self.sourcesArray[indexPath.item].kUrlsToLogo["small"]!), placeholderImage: #imageLiteral(resourceName: "Placeholder"))
-        //cell.sourceImageView.contentMode = .center
-        //cell.sourceImageView.layer.masksToBounds = true
-        
         cell.selectionStyle = .none
         
+        if indexPath.item == sourcesArray.count - 1 {
+            activityIndicator.stopAnimating()
+        }
+    
         return cell
     }
     
@@ -128,7 +122,6 @@ class SourceViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     let source = Source(withServer: item)
                     self.sourcesArray.append(source)
                 }
-
             }
             DispatchQueue.main.async {
                 self.sourceTableView.reloadData()

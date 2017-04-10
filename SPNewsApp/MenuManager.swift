@@ -10,11 +10,32 @@ import UIKit
 
 class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    let filterTableView = UITableView()
-    let blackView = UIView()
-    let categories = ["Business", "Entertainment", "Gaming", "General", "Science-and-Nature", "Music", "Sport", "Technology", "All"]
+    var filterTableView: UITableView
+    var blackView: UIView
+    let categories: [String]
     
     var mainVC: SourceViewController?
+
+    func setUpMenu() {
+        filterTableView.delegate = self
+        filterTableView.dataSource = self
+        filterTableView.isScrollEnabled = false
+        filterTableView.bounces = false
+        filterTableView.separatorStyle = .none
+        filterTableView.register(CategoryViewCell.classForCoder(), forCellReuseIdentifier: "categoryCell")
+    }
+    
+    override init() {
+
+        self.filterTableView = UITableView()
+        self.blackView = UIView()
+        self.categories = ["Business", "Entertainment", "Gaming", "General", "Science-and-Nature", "Music", "Sport", "Technology", "All"]
+        
+        super.init()
+        
+        self.setUpMenu()
+    }
+    
     
     public func openMenu() {
         if let window = UIApplication.shared.keyWindow {
@@ -22,14 +43,11 @@ class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
             blackView.frame = window.frame
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
             blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.closeMenu)))
-            
-            // Configure TableView
-            
+
             let height: CGFloat = 36 * 9
             let y = window.frame.height - height
             
             filterTableView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
-            
 
             window.addSubview(blackView)
             window.addSubview(filterTableView)
@@ -51,27 +69,13 @@ class MenuManager: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    
-    override init() {
-        super.init()
-
-        filterTableView.delegate = self
-        filterTableView.dataSource = self
-        filterTableView.isScrollEnabled = false
-        filterTableView.bounces = false
-        filterTableView.separatorInset.left = 8
-        filterTableView.separatorInset.right = 8
-        filterTableView.register(CategoryViewCell.classForCoder(), forCellReuseIdentifier: "categoryCell")
-    }
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = mainVC {
+            
             let category = categories[indexPath.item].lowercased()
             vc.currentCategory = category
-            
             vc.sourcesArray.removeAll()
-            
+
             if category == "all" {
                 vc.fetchSources(withCategory: nil)
             } else {

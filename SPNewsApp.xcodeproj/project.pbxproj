@@ -16,7 +16,6 @@
 		789098211E97F9560032246F /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098201E97F9560032246F /* ServerManager.swift */; };
 		789098251E97F9E40032246F /* SourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098241E97F9E40032246F /* SourceCell.swift */; };
 		789098271E97FAB40032246F /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098261E97FAB40032246F /* SourceViewController.swift */; };
-		789098681E981FFD0032246F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789098671E981FFD0032246F /* SDWebImage.framework */; };
 		789098691E9820090032246F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789098671E981FFD0032246F /* SDWebImage.framework */; };
 		7890986A1E9820090032246F /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 789098671E981FFD0032246F /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7890986F1E9837180032246F /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890986E1E9837180032246F /* MenuManager.swift */; };
@@ -26,10 +25,8 @@
 		7890987B1E98DE2C0032246F /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890987A1E98DE2C0032246F /* Source.swift */; };
 		7890987D1E98E76D0032246F /* ArticleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890987C1E98E76D0032246F /* ArticleViewCell.swift */; };
 		789098801E99078E0032246F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7890987F1E99078E0032246F /* WebKit.framework */; };
-		789098811E9907910032246F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7890987F1E99078E0032246F /* WebKit.framework */; };
 		789098821E9907910032246F /* WebKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7890987F1E99078E0032246F /* WebKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		789098841E9907AC0032246F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098831E9907AC0032246F /* WebViewController.swift */; };
-		789098861E993FFD0032246F /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789098851E993FFD0032246F /* Reachability.framework */; };
 		789098871E9940020032246F /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789098851E993FFD0032246F /* Reachability.framework */; };
 		789098881E9940020032246F /* Reachability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 789098851E993FFD0032246F /* Reachability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7890988A1E994A4D0032246F /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789098891E994A4D0032246F /* CategoryViewCell.swift */; };
@@ -105,9 +102,6 @@
 				789098801E99078E0032246F /* WebKit.framework in Frameworks */,
 				789098871E9940020032246F /* Reachability.framework in Frameworks */,
 				789098691E9820090032246F /* SDWebImage.framework in Frameworks */,
-				789098861E993FFD0032246F /* Reachability.framework in Frameworks */,
-				789098811E9907910032246F /* WebKit.framework in Frameworks */,
-				789098681E981FFD0032246F /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
